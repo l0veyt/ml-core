@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>主页</title>
+    <script src="../static/jquery/jquery.js"></script>
+    <script src="../static/semantic/semantic.js"></script>
+    <link rel="stylesheet" href="../static/semantic/semantic.css">
+</head>
+<body>
+    <div class="ui top attached menu">
+        <div class="item">
+            <img src="../static/images/logo.jpg">
+        </div>
+        <a id="menuClick" class="item">
+            <i class="sidebar icon"></i>
+            菜单
+        </a>
+        <a class="item">特征</a>
+        <a class="item">推荐</a>
+        <a class="item">登录</a>
+    </div>
+    <div class="ui bottom attached segment pushable">
+        <div class="ui left visible sidebar vertical accordion menu">
+            <div class="item">
+                <a class="title">
+                    <i class="home icon"></i>
+                    主页
+                </a>
+                <div class="content">
+                    <a class="item">
+                        主页1
+                    </a>
+                    <a class="item">
+                        主页2
+                    </a>
+                </div>
+            </div>
+            <div class="item">
+                <a class="title">
+                    <i class="block layout icon"></i>
+                    话题
+                </a>
+                <div class="content">
+                    <a class="item">
+                        主页1
+                    </a>
+                    <a class="item">
+                        主页2
+                    </a>
+                </div>
+            </div>
+            <div class="item">
+                <a class="title">
+                    <i class="smile icon"></i>
+                    朋友
+                </a>
+                <div class="content">
+                    <a class="item">
+                        主页1
+                    </a>
+                    <a class="item">
+                        主页2
+                    </a>
+                </div>
+            </div>
+            <div class="item">
+                <a class="title">
+                    <i class="calendar icon"></i>
+                    历史
+                </a>
+                <div class="content">
+                    <a class="item">
+                        主页1
+                    </a>
+                    <a class="item">
+                        主页2
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="pusher"></div>
+    </div>
+    <script>
+        $('.ui.accordion').accordion();
+        $('#menuClick').click(function() {
+            $('.ui.sidebar').sidebar({
+                context: '.ui.pushable',
+                dimPage : false,
+                onVisible: function() {
+                    $('.ui.pushable').click(function(e){
+                        this.unbind(e);
+                    });
+                },
+                onShow: function() {
+                    $('.ui.sidebar').css("z-index",999);
+                },
+                onHide: function() {
+                    $('.ui.sidebar').css("z-index",1);
+                }
+            }).sidebar('toggle');
+        });
+    </script>
+</body>
+</html>
